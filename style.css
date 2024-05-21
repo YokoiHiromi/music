@@ -5,48 +5,31 @@
 }
 
 body{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Shippori Mincho B1", serif;
+    font-weight: 400;
+    font-style: normal;
     margin: 0;
     padding: 0;
-}
-
-.tytle-style{
-    color: #f04;
 }
 
 header{
     background: #333;
     color: white;
-    padding: 10px 0;
-}
-
-header .container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;
-    height: 50px;
-    margin: auto;
-}
-
-header h1{
-    margin: 0;
-    font-size: 1.5em;
+    padding: 20px 0;
 }
 
 header nav ul{
     list-style: none;
-    margin: 0;
-    padding: 0;
+    margin: 30px 0 0 0;
+    padding-right: 50px;
     display: flex;
-    align-items: center;
 }
 
 header nav ul li{
     margin-left: 20px;
 }
 
-header nav ul li a{
+a{
     color: white;
     text-decoration: none;
 }
@@ -55,19 +38,106 @@ header nav ul li a:hover{
     color: #f04;
 }
 
-.hero{
+.hamburger {
+    margin: 20px auto 0;
+    width: 100%;
+    max-width: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    color: #f04;
+    font-size: 40px;
+    font-weight: bold;
+    padding-left: 100px;
+}
+
+nav .gnav{
+    padding-right: 400px;
+
+}
+
+.hamburger .btn-gnav {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 24px;
+    z-index: 12;
+    box-sizing: border-box;
+    cursor: pointer;
+    -webkit-transition: all 400ms;
+    transition: all 400ms;
+}
+
+.hamburger .btn-gnav span {
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: #ffffff;
+    border-radius: 10px;
+    -webkit-transition: all 400ms;
+    transition: all 400ms;
+}
+
+.hamburger .btn-gnav span:nth-child(1) {
+    top: 0;
+}
+
+.hamburger .btn-gnav span:nth-child(2) {
+    top: 10px;
+}
+
+.hamburger .btn-gnav span:nth-child(3) {
+    top: 20px;
+}
+
+.hamburger .btn-gnav.open span:nth-child(1) {
+    background: #ffffff;
+    top: 6px;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.hamburger .btn-gnav.open span:nth-child(2),
+.hamburger .btn-gnav.open span:nth-child(3) {
+    top: 6px;
+    background: #ffffff;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+.btn-gnav {
+    display: none;
+}
+
+.gNav .gnav-menu {
+    display: flex;
+    justify-content: space-between;
+}
+
+.gNav .gnav-menu li {
+    margin-left: 20px;
+}
+
+/* メイン */
+.main{
     position: relative;
     text-align: center;
     color: white;
 }
 
-.hero img{
+.main img{
     width: 100%;
     height: auto;
     filter: brightness(70%);
 }
 
-.hero-text{
+.main-text{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -75,10 +145,9 @@ header nav ul li a:hover{
     text-align: center;
 }
 
-.hero-text h2{
+.main-text h2{
     font-size: 2.5em;
 }
-
 
 .cta-buttons{
     margin-top: 20px;
@@ -87,34 +156,31 @@ header nav ul li a:hover{
 .cta-button{
     background: #f04;
     border: none;
-    padding: 15px 25px;
     color: white;
-    cursor: pointer;
     font-size: 1.2em;
     margin: 0 10px;
-    transition: background 0.3s;
+    padding: 15px 25px;
+    cursor: pointer;
+    transition: background 0.3s;   /* 0.3秒かけて滑らかに変化してくれる */
 }
 
-.cta-button.primary{
+.cta-button.first{
     background: #f04;
-
 }
 
-.cta-button.secondary{
+.cta-button.second{
     background: #666;
 }
 
 .cta-button:hover{
     background: #c03;
-    border-radius: 50%;
 }
 
-.cta-button.cta-button.secondary:hover{
+.cta-button.cta-button.second:hover{
     background: #444;
-    border-radius: 50%;
 }
 
-
+/* ニュース */
 .news{
     text-align: center;
     padding: 50px o;
@@ -129,7 +195,7 @@ header nav ul li a:hover{
     display: grid;
     grid-template-columns: repeat(3,minmax(100px, 1fr));
     gap: 20px;
-    width: 90%;
+    width: 80%;
     margin: auto;
 }
 
@@ -152,18 +218,19 @@ header nav ul li a:hover{
 }
 
 .news-item p{
-    margin: 10px 0;
     font-size: 1em;
     line-height: 1.5;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    margin: 10px 0;
+    white-space: nowrap;  /* 自動で改行されたくない時 */
+    overflow: hidden;  /* はみ出ない魔法 */
+    text-overflow: ellipsis;  /* 1行を超えたら...で省略してくれる */
 }
 
+/* 音楽再生ボタン */
 .play-music-btn-container{
     position: fixed;
-    top: 200px;  /* 任意の位置に調整必要*/
-    right: -40px;  /* 任意の位置に調整必要 */ 
+    top: 200px;  /* 位置調整必要 */
+    right: -40px;  /* 位置調整必要 */ 
     z-index: 1000;
 }
 
@@ -190,14 +257,14 @@ header nav ul li a:hover{
   .circleText {
     overflow: visible;
     animation: rotation 10s linear infinite;
-    /* &__circle { 
+    &__circle { 
       fill: none; 
-    } */
-    /* &__text {
+    }
+    &__text {
       fill: #fff;
       font-size: 20px;
       letter-spacing: 0.02em;
-    } */
+    }
 }
   @keyframes rotation {
     0% {
@@ -208,9 +275,31 @@ header nav ul li a:hover{
     }
   }
 
+  /* コンタクトフォームのスタイル */
+.contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact form label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.contact form input,
+.contact form textarea {
+    width: 100%;
+    padding:0;
+}
+
+/* フッター */
 .footer{
     background: #333;
     color: #fff;
+    margin-top: 20px;
     padding: 20px 0;
     text-align: center;
 }
@@ -218,7 +307,6 @@ header nav ul li a:hover{
 .footer-div{
     display: flex;
     justify-content: space-around;
-    flex-wrap: wrap;
 }
 
 .footer-ul{
@@ -255,4 +343,130 @@ header nav ul li a:hover{
 
 .privacy-policy:hover{
     color: #c03;
+}
+
+/* レスポンシブ モバイル版 */
+@media screen and (max-width: 768px) {
+    .btn-gnav {
+        display: block;
+    }
+
+    .gnav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        font-size: 16px;
+        box-sizing: border-box;
+        z-index: 1;
+        padding-top: 50px;
+        transition: .3s;
+    }
+
+    .gnav.open {
+        right: 0;
+    }
+
+    .gnav .gnav-menu {
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        /*justify-content: center;*/
+    }
+
+    .gnav .gnav-menu li {
+        width: 100%;
+        padding: 15px;
+        border-bottom: #525252 1px solid;
+    }
+
+    .hamburger {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo {
+        padding-left: 0;
+        text-align: center;
+        font-size: 1.5em;
+    }
+
+    .btn-gnav {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        /* align-items: center; */
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    header nav ul li {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .main-text h2 {
+        font-size: 1.5em;
+    }
+
+    .cta-button {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header nav ul li {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .footer-div {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-div > div {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .footer-navi ul {
+        padding: 0;
+    }
+
+    .footer-ul {
+        padding: 0;
+        text-align: center;
+    }
+
+    .footer-ul li {
+        margin-bottom: 10px;
+    }
 }
